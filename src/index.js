@@ -1,21 +1,16 @@
-import * as React from 'react'
+import { useEffect, useState } from 'react';
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState({
-    counter: 0
-  })
+export function useSessionState (variableName) {
+  let sessionStorage = typeof(window) !== 'undefined'?window.sessionStorage:null
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval)
+  const [stateStorage, setStateStorage] = useState(sessionStorage?.[variableName]?JSON.parse(sessionStorage[variableName]):null)
+
+  useEffect(()=>{
+    if(stateStorage == null || stateStorage == undefined){
+      sessionStorage?.removeItem(variableName)
+      return
     }
-  }, [])
-
-  return counter
+    sessionStorage?.setItem(variableName, JSON.stringify(stateStorage))
+  }, [stateStorage])
+  return [stateStorage, setStateStorage]
 }
