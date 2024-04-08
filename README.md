@@ -10,6 +10,10 @@
 npm install --save sessionstate
 ```
 
+## Description
+
+This simple hook should make it easier to add JSON and string objects to the window sessionStorage variable using useState.
+
 ## Usage
 
 ```jsx
