@@ -13,14 +13,43 @@ npm install --save sessionstate
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+// string
 
-import { useMyHook } from 'sessionstate'
+import React, { useEffect } from 'react'
+
+import { useSessionState } from 'sessionstate'
 
 const Example = () => {
-  const example = useMyHook()
+  const [state, setState] = useSessionState("window.sessionStorage variable")
+  useEffect(()=>{
+    console.log("sessionStorage: " + window.sessionStorage["window.sessionStorage variable"])
+    console.log("sessionState: " + state)
+  }, [state])
   return (
-    <div>{example}</div>
+    <div>      
+      <p>{state}</p>
+      <button onClick={()=>setState("Your value")}>Save value</button>
+    </div>
+  )
+}
+
+// JSON
+
+import React, { useEffect } from 'react'
+
+import { useSessionState } from 'sessionstate'
+
+const Example = () => {
+  const [state, setState] = useSessionState("window.sessionStorage variable")
+  useEffect(()=>{
+    console.log("sessionStorage: " + window.sessionStorage["window.sessionStorage variable"])
+    console.log("sessionState: " + state)
+  }, [state])
+  return (
+    <div>      
+      <p>{state}</p>
+      <button onClick={()=>setState([{"key1": "value1"}, {"key2": "value2"}])}>Save value</button>
+    </div>
   )
 }
 ```

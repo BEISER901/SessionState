@@ -1,16 +1,22 @@
 import { useEffect, useState } from 'react';
 
 export function useSessionState (variableName) {
-  let sessionStorage = typeof(window) !== 'undefined'?window.sessionStorage:null
+  let sessionStorage
 
-  const [stateStorage, setStateStorage] = useState(sessionStorage?.[variableName]?JSON.parse(sessionStorage[variableName]):null)
+  try {
+    sessionStorage = JSON.parse(window.sessionStorage[variableName])
+  }catch(e){
+    sessionStorage = window.sessionStorage[variableName]
+  }
+
+  const [stateStorage, setStateStorage] = useState(sessionStorage)
 
   useEffect(()=>{
     if(stateStorage == null || stateStorage == undefined){
-      sessionStorage?.removeItem(variableName)
+      window.sessionStorage?.removeItem(variableName)
       return
     }
-    sessionStorage?.setItem(variableName, JSON.stringify(stateStorage))
+    window.sessionStorage?.setItem(variableName, typeof(stateStorage) === "string"? stateStorage:JSON.stringify(stateStorage))
   }, [stateStorage])
   return [stateStorage, setStateStorage]
 }
