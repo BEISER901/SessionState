@@ -66,7 +66,7 @@ Thanks you!
 
 ## License
 
-MIT © [NikitaBondar](https://github.com/NikitaBondar)
+MIT © [BEISER901](https://github.com/BEISER901)
 
 ---
 
