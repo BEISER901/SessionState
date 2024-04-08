@@ -58,6 +58,12 @@ const Example = () => {
 }
 ```
 
+## Feedback
+
+If you find a bug or a flaw in the code, please email me: id_1.0@mail.ru.
+
+Thanks you!
+
 ## License
 
 MIT © [NikitaBondar](https://github.com/NikitaBondar)
