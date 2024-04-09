@@ -4,7 +4,7 @@
   "description": "",
   "author": "BEISER901",
   "license": "MIT",
-  "repository": "BEISER901/sessionstate",
+  "repository": "BEISER901/SessionState",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
