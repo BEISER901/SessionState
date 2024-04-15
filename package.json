@@ -1,6 +1,6 @@
 {
-  "name": "sessionstate",
-  "version": "1.0.0",
+  "name": "sessionstate.jsx",
+  "version": "1.0.3",
   "description": "",
   "author": "BEISER901",
   "license": "MIT",
@@ -12,6 +12,16 @@
     "node": ">=8",
     "npm": ">=5"
   },
+  "keywords": [
+    "useState",
+    "window",
+    "sessionstate",
+    "sessionStorage",
+    "hook",
+    "hooks",
+    "react",
+    "nextjs"
+  ],
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
